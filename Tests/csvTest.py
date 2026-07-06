@@ -12,7 +12,7 @@ inputFile = projectFolder / "input.csv"
 outputFile = projectFolder / "cleaned_output.csv"
 
 
-test_cases = {
+testCases = {
     "csvBasicTest.csv": {
         "expected_columns": ["name", "age", "city"],
         "expected_rows": 3,
@@ -79,16 +79,16 @@ def run_test(cleanerFile, csvFile, expectedColumns, expectedRows):
     return True, "Passed"
 
 
-total_tests = 0
-passed_tests = 0
+totalTests = 0
+passedTests = 0
 
 for cleanerFile in cleanerFiles:
     print("\n~~~")
     print(f"Testing cleaner: {cleanerFile}")
     print("~~~")
 
-    for csvFile, expected in test_cases.items():
-        total_tests += 1
+    for csvFile, expected in testCases.items():
+        totalTests += 1
 
         passed, message = run_test(
             cleanerFile,
@@ -98,7 +98,7 @@ for cleanerFile in cleanerFiles:
         )
 
         if passed:
-            passed_tests += 1
+            passedTests += 1
             print(f"PASS: {csvFile}")
         else:
             print(f"FAIL: {csvFile}")
@@ -108,5 +108,5 @@ for cleanerFile in cleanerFiles:
 print("\n~~~")
 print("TEST SUMMARY")
 print("~~~")
-print(f"Passed: {passed_tests}/{total_tests}")
-print(f"Failed: {total_tests - passed_tests}/{total_tests}")
+print(f"Passed: {passedTests}/{totalTests}")
+print(f"Failed: {totalTests - passedTests}/{totalTests}")
