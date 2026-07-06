@@ -63,4 +63,4 @@ def clean_csv(input_file, output_file=None, fill_missing=""):
 
 # Example usage
 if __name__ == "__main__":
-    clean_csv("data.csv")
+    clean_csv("input.csv")
